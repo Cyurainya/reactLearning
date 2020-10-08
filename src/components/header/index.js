@@ -51,14 +51,15 @@ class Header extends Component {
           className="searchSpan"     
           />
           <div>
+            {/* 这里需要换成更好的pop */}
           <Popover
         content={<a onClick={this.hide}>Close</a>}
-        title="Title"
+        title={this.state.name}
         trigger="click"
         visible={this.state.visible}
         onVisibleChange={this.handleVisibleChange}
       >
-        <Button type="primary" style={background='rgb(45, 92, 170)'}>{this.state.name}</Button>
+        <Button type="primary">{this.state.name}</Button>
       </Popover>
             <span>退出</span>
           </div>

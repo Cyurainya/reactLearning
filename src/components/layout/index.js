@@ -24,6 +24,7 @@ class Navigator extends Component {
   componentDidMount() {
     axios.get('http://localhost:5000/navigation').then((res) =>{
       let naviList = res.data.naviList;
+      console.log(res)
       this.setState({ list: naviList })
     })
   }
@@ -48,8 +49,9 @@ class Navigator extends Component {
           {
             this.state.list.map((item, index) => {
               return (
+                // 这个icon要用传来的渲染
                 <Menu.Item key={item+index}  icon={<PieChartOutlined />}>
-                 {item}
+                 {item.name}
                 </Menu.Item>
               )
             })
