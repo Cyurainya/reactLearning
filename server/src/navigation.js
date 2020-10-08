@@ -4,8 +4,36 @@ const router = require("koa-router")();
 router.get("/navigation", async (ctx) => {
   ctx.body = {
     naviList: [
-      "BD代办任务",
-      "项目查询",
+      {
+        icon: "<MenuFoldOutlined />",
+        name:"BD代办任务",
+      },
+      {
+        icon: "<BookOutlined />",
+        name: "项目查询"
+      },
+      {
+        icon: "<MenuFoldOutlined />",
+        name:"BD代办任务",
+      },
+      {
+        icon: "<MenuFoldOutlined />",
+        name:"BD代办任务",
+      },
+      {
+        icon: "<MenuFoldOutlined />",
+        name:"BD代办任务",
+      },
+      {
+        icon: "<MenuFoldOutlined />",
+        name:"BD代办任务",
+      },
+
+      {
+        icon: "<MenuFoldOutlined />",
+        name:"BD代办任务",
+      },
+     ,
       "上货进度看板",
       "供应商管理",
       "门店管理",

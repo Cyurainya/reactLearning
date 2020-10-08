@@ -1,0 +1,15 @@
+li,
+.ant-menu.ant-menu-dark,
+.ant-menu-dark .ant-menu-sub,
+.ant-menu.ant-menu-dark .ant-menu-sub {
+    background: rgb(245, 245, 245);
+    color: blue;
+}
+
+.ant-menu-item .ant-menu-item-only-child .ant-menu-item-selected {
+    color: blue;
+}
+
+.ant-menu-item .anticon+span {
+    color: #1890ff;
+}
