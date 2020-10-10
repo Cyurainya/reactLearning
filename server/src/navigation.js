@@ -6,14 +6,18 @@ router.get("/navigation", async(ctx) => {
         naviList: [{
                 icon: "<MenuFoldOutlined />",
                 name: "BD代办任务",
+                url: "/bdtask",
             },
             {
                 icon: "<SwitcherOutlined />",
-                name: "项目查询"
+                name: "项目查询",
+                url: "/projects"
             },
             {
                 icon: "<TagsOutlined />",
                 name: "上货进度看板",
+                url: "viewboard",
+              
             },
             {
                 icon: "<UserDeleteOutlined />",
