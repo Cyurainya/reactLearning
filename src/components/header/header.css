@@ -1,0 +1,12 @@
+.M-header {
+    line-height: 40px;
+    color: #fff;
+    background: rgb(45, 92, 170);
+    display: flex;
+    padding: 1vh 2vw;
+    justify-content: space-between;
+}
+
+.searchSpan {
+    width: 50vw;
+}
