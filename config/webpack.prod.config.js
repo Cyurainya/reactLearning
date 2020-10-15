@@ -47,6 +47,11 @@ module.exports = merge(common, {
           'css-loader',
           'sass-loader'
         ]
+      },
+      {
+        test: /\.(js|jsx)$/,
+        use: 'babel-loader',
+        exclude: /node_modules/,
       }
     ]
   },
@@ -112,7 +117,7 @@ module.exports = merge(common, {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'public/index.html',
+      template: '../public/index.html',
       inject: 'body',
       minify: {
         removeComments: true,

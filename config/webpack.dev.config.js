@@ -54,6 +54,7 @@ module.exports = merge(common, {
       inject: 'body',
       hash: false
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+
   ]
 });

@@ -1,21 +1,28 @@
 const path = require('path');
 
 module.exports = {
-  entry: {
-    index: './src/index.js',
-    framework: ['react', 'react-dom'],
+    entry: {
+        app:'./src/index.js',
+        framework: ['react', 'react-dom'],
+    },
+    output: {
+        filename: 'js/bundle.js',
+        path: path.resolve(__dirname, '../dist')
+    },
+    devServer: {
+      contentBase: path.resolve(__dirname, 'public'),
+    },
+    module: {
+        rules: [{
+          test: /\.jsx?$/,
+          exclude: [/node_modules/],
+          use: {
+            loader: 'babel-loader',
+        }},
+
+        ]
   },
-  output: {
-    filename: 'js/bundle.js',
-    path: path.resolve(__dirname, '../dist')
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        use: 'babel-loader',
-        exclude: /node_modules/,
-      }
-    ]
-  }
+  externals: {
+    'react': 'React'
+},
 }
