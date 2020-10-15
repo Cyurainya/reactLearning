@@ -7,6 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'development',
+  watch: true,
   output: {
     filename: 'js/[name].[hash:8].bundle.js',
   },
@@ -16,8 +17,6 @@ module.exports = merge(common, {
     port: 9000,
     compress: true,
     hot: true,
-    disableHostCheck: true,
-    colors:true
   },
   module: {
     rules: [

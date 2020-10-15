@@ -1,12 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
 module.exports = {
-    entry: {
-        app:'./src/index.js',
+    entry:{
+        app:['./src/index.js'],
         framework: ['react', 'react-dom'],
-    },
+    } ,
     output: {
-        filename: 'js/bundle.js',
+        filename: 'js/[name]_[chunkhash]_bundle.js',
         path: path.resolve(__dirname, '../dist')
     },
     devServer: {
