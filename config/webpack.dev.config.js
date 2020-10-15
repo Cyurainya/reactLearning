@@ -55,6 +55,8 @@ module.exports = merge(common, {
       hash: false
     }),
     new webpack.HotModuleReplacementPlugin(),
-
+        new webpack.ProvidePlugin({ 
+      "React": "react", 
+     }), 
   ]
 });
