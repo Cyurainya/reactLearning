@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-
+const path = require('path')
 module.exports = merge(common, {
   mode: 'production',
   output: {
@@ -117,7 +117,7 @@ module.exports = merge(common, {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: '../public/index.html',
+      template: path.resolve(__dirname,'./public/index.html'),
       inject: 'body',
       minify: {
         removeComments: true,
