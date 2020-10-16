@@ -1,43 +1,79 @@
 import React, { Component } from 'react';
 import { Menu, Button } from 'antd'
 import './sidebar.css'
-import axios from 'axios'
+import { request } from '../../api/http'
+
 import {
-  MenuUnfoldOutlined,
   MenuFoldOutlined,
-  PieChartOutlined,
-  DesktopOutlined,
-  ContainerOutlined,
-  setTwoToneColor
+  SwitcherOutlined,
+  TagsOutlined,
+  AudioOutlined,
+  UserDeleteOutlined,
+  BarcodeOutlined,
+  DeploymentUnitOutlined,
+  MenuUnfoldOutlined,
 } from '@ant-design/icons';
 
-setTwoToneColor('red');
 class Sidebar extends Component {
   constructor(props) {
     super(props);
     this.state = {
        collapsed: false,
-       list :[]
+       navList :[]
     }
-    this.toggleCollapsed = this.toggleCollapsed.bind(this)
+    this.toggleCollapsed = this.toggleCollapsed.bind(this);
+    this.nextPage = this.nextPage.bind(this)
   }
 
-
+  
   componentDidMount() {
-    axios.get('http://localhost:5000/navigation').then((res) =>{
-      let naviList = res.data.naviList;
-      console.log(res)
-      this.setState({ list: naviList })
+    function createIcon(icon) {
+      switch (icon) {
+        case "MenuFoldOutlined":
+          return <MenuFoldOutlined />
+        case "SwitcherOutlined":
+          return <SwitcherOutlined />
+        case "MenuFoldOutlined":
+          return <MenuFoldOutlined />
+        case "TagsOutlined":
+          return <TagsOutlined />
+        case "UserDeleteOutlined":
+          return <UserDeleteOutlined />
+        case "AudioOutlined":
+          return <AudioOutlined />
+        case "MenuFoldOutlined":
+          return <MenuFoldOutlined />
+        case "BarcodeOutlined":
+          return <BarcodeOutlined />
+        case "DeploymentUnitOutlined":
+          return <DeploymentUnitOutlined />
+        default:
+          return <DeploymentUnitOutlined />
+      }
+        
+    }
+    request().get("/navigation").then((res) =>{
+      let navList = res.data.navList;
+      let newList = navList.map((obj) => {
+        let newObj = {};
+        newObj = obj;
+        newObj.icon = createIcon(obj.icon)
+        return newObj
+      })
+      this.setState({ navList: newList })
     })
   }
   toggleCollapsed () {
     this.setState({
       collapsed: !this.state.collapsed,
     });
-  };
+  }
+  nextPage(url) {
+    console.log(url)
+  } 
   render() { 
     return ( 
-      <div style={{ width: 'fit-content', background: 'rgb(245,245,245)' }}>
+      <div className="nav">
       <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
         {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
       </Button>
@@ -48,11 +84,10 @@ class Sidebar extends Component {
         theme="dark"
         inlineCollapsed={this.state.collapsed}
         >
-          {
-            this.state.list.map((item, index) => {
+      {
+            this.state.navList.map((item, index) => {
               return (
-                // Todo 这个icon渲染要fix
-                <Menu.Item key={item+index}  icon={<PieChartOutlined />}>
+                <Menu.Item key={item+index}  icon={item.icon}  >
                  {item.name}
                 </Menu.Item>
               )

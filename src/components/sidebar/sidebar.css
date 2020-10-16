@@ -23,3 +23,9 @@ li,
 .anticon svg {
     color: #1890ff;
 }
+
+.nav {
+    width: fit-content;
+    background: rgb(245, 245, 245);
+    height: 94vh;
+}

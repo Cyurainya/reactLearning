@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Input } from 'antd'
 import {Popover,Button} from 'antd'
-import axios from 'axios'
+import { request } from '../../api/http'
 import "./header.css"
 const { Search } = Input;
 class Header extends Component {
@@ -26,7 +26,7 @@ class Header extends Component {
     this.setState({ visible });
   };
   componentDidMount(){
-    axios.get('http://localhost:5000/user').then((res) =>{
+    request().get('/user').then((res) =>{
       let name = res.data.name;
       let phone = res.data.phone;
       this.setState({
@@ -54,7 +54,7 @@ class Header extends Component {
       >
         <Button type="primary">{this.state.name}</Button>
       </Popover>
-            <span>出</span>
+            <span>退出</span>
           </div>
       </div>
         </Fragment>
