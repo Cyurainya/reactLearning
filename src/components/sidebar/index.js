@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Menu, Button } from 'antd'
 import './sidebar.css'
 import { request } from '../../api/http'
-
+//import { Router , Route , Link, BrowserRouter } from 'react-router-dom'
+import { Router } from '../../router'
+import {Link} from 'react-router-dom'
 import {
   MenuFoldOutlined,
   SwitcherOutlined,
@@ -22,10 +24,10 @@ class Sidebar extends Component {
        navList :[]
     }
     this.toggleCollapsed = this.toggleCollapsed.bind(this);
-    this.nextPage = this.nextPage.bind(this)
+    this.router = new Router();
+    this.router.init();
   }
 
-  
   componentDidMount() {
     function createIcon(icon) {
       switch (icon) {
@@ -68,7 +70,7 @@ class Sidebar extends Component {
       collapsed: !this.state.collapsed,
     });
   }
-  nextPage(url) {
+  routePage(url) {
     console.log(url)
   } 
   render() { 
@@ -78,21 +80,24 @@ class Sidebar extends Component {
         {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
       </Button>
       <Menu
-        defaultSelectedKeys={['1']}
+        defaultSelectedKeys={['1']}  
         defaultOpenKeys={['sub1']}
         mode="inline"
         theme="dark"
         inlineCollapsed={this.state.collapsed}
-        >
-      {
+        >         
+              {
             this.state.navList.map((item, index) => {
               return (
-                <Menu.Item key={item+index}  icon={item.icon}  >
-                 {item.name}
+                <Menu.Item key={item + index} icon={item.icon} key={item.url+index} onClick={this.routePage.bind(this, item.url)}>
+                  <Link to={item.url} className="linkDiv"> {item.name}</Link>
+                 
                 </Menu.Item>
               )
             })
           }
+        
+    
         
         
       </Menu>

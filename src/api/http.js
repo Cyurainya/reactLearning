@@ -10,9 +10,9 @@ function request(
     autoCatch = false
 ) {
   function get(...args) {
-    debugger
+
     return service.get(...args).then(res => {
-      debugger
+
           console.log(res);
 
             // let code = res.data.code;

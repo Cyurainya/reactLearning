@@ -13,13 +13,20 @@ module.exports = {
       contentBase: path.resolve(__dirname, 'public'),
     },
     module: {
-        rules: [{
-          test: /\.jsx?$/,
+      rules: [
+        {
+          test: /\.(js|jsx)$/,
           exclude: [/node_modules/],
-          use: {
-            loader: 'babel-loader',
-        }},
-
+          use: [
+            {
+            loader: 'babel-loader'
+            },
+            {
+              loader:path.resolve(__dirname,'src/loader/loaderA.js')
+            }
+          ]
+        },
+       
         ]
   },
   plugins: [ 

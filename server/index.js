@@ -16,6 +16,8 @@ app.use(async(ctx, next) => {
     }
 });
 
+
+
 app.use(user.routes(), user.allowedMethods())
     .use(navigation.routes(), navigation.allowedMethods());
 
@@ -24,6 +26,5 @@ app.on("error", (err, ctx) => {
 });
 
 app.listen(7000, () => {
-    debugger
     console.log('[Server] starting at port 7000');
 });

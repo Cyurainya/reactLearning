@@ -10,7 +10,11 @@ li,
     color: blue;
 }
 
-.ant-menu-item .anticon+span {
+.ant-menu-item .anticon+span,
+.ant-menu-dark .ant-menu-item,
+.ant-menu-dark .ant-menu-item-group-title,
+.ant-menu-dark .ant-menu-item>a,
+.ant-menu-dark .ant-menu-item>span>a {
     color: #1890ff;
 }
 
@@ -28,4 +32,8 @@ li,
     width: fit-content;
     background: rgb(245, 245, 245);
     height: 94vh;
+}
+
+.ant-menu-item-selected>.linkDiv {
+    color: white
 }
