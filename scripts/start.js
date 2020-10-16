@@ -14,7 +14,8 @@ const server = new WebpackDevServer(compiler, {
     hot: true, 
     historyApiFallback: false,
     compress: true,
-    open: true
+    open: true,
+    historyApiFallback:true
     
 });
 server.listen(9000);

@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Header from '../../components/header'
+import Sidebar from '../../components/sidebar'
+import '../home/home.css'
 
 class Supp extends Component{
   constructor(props) {
@@ -6,9 +9,17 @@ class Supp extends Component{
   }
   render() {
     return (
-      <div>
-      Supp
-    </div> 
+      <div className="P-home">
+      <Header />
+      <div className="main">
+        <Sidebar />          
+        <div>
+        
+     
+        </div>
+      </div>
+     
+    </div>
     )
   }
 }

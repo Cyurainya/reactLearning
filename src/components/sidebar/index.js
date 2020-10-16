@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { Menu, Button } from 'antd'
 import './sidebar.css'
 import { request } from '../../api/http'
-//import { Router , Route , Link, BrowserRouter } from 'react-router-dom'
 import { Router } from '../../router'
-import {Link} from 'react-router-dom'
+import {Link , Redirect , useHistory} from 'react-router-dom'
 import {
   MenuFoldOutlined,
   SwitcherOutlined,
@@ -90,8 +89,8 @@ class Sidebar extends Component {
             this.state.navList.map((item, index) => {
               return (
                 <Menu.Item key={item + index} icon={item.icon} key={item.url+index} onClick={this.routePage.bind(this, item.url)}>
-                  <Link to={item.url} className="linkDiv"> {item.name}</Link>
-                 
+                  <Link to={item.url} className="linkDiv">{item.name} </Link>
+                 {/* {item.name} */}
                 </Menu.Item>
               )
             })

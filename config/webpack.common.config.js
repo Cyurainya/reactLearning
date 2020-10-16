@@ -21,9 +21,9 @@ module.exports = {
             {
             loader: 'babel-loader'
             },
-            {
-              loader:path.resolve(__dirname,'src/loader/loaderA.js')
-            }
+            // {
+            //   loader:path.resolve(__dirname,'src/loader/loaderA.js')
+            // }
           ]
         },
        
