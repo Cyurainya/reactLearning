@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Menu, Button } from 'antd'
 import './sidebar.css'
 import { request } from '../../api/http'
-import { Router } from '../../router'
-import {Link , Redirect , useHistory} from 'react-router-dom'
+// import { Router } from '../../router'
+// import {Link , Redirect , useHistory} from 'react-router-dom'
 import {
   MenuFoldOutlined,
   SwitcherOutlined,
@@ -23,8 +23,7 @@ class Sidebar extends Component {
        navList :[]
     }
     this.toggleCollapsed = this.toggleCollapsed.bind(this);
-    this.router = new Router();
-    this.router.init();
+
   }
 
   componentDidMount() {
@@ -62,6 +61,8 @@ class Sidebar extends Component {
         return newObj
       })
       this.setState({ navList: newList })
+    }).catch(err => {
+      console.log(err)
     })
   }
   toggleCollapsed () {
@@ -89,16 +90,14 @@ class Sidebar extends Component {
             this.state.navList.map((item, index) => {
               return (
                 <Menu.Item key={item + index} icon={item.icon} key={item.url+index} onClick={this.routePage.bind(this, item.url)}>
-                  <Link to={item.url} className="linkDiv">{item.name} </Link>
-                 {/* {item.name} */}
+                
+                  <a href={item.url + '.html'}>
+                    {item.name}  
+                </a>
                 </Menu.Item>
               )
             })
-          }
-        
-    
-        
-        
+          }                   
       </Menu>
     </div>
      );

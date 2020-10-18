@@ -13,7 +13,7 @@ router.get("/navigation", async(ctx) => {
             {
                 icon: "SwitcherOutlined",
                 name: "项目查询",
-                url: "/projects",
+                url: "/project",
                 detail: "项目查询"
             },
             {
@@ -25,7 +25,7 @@ router.get("/navigation", async(ctx) => {
             {
                 icon: "UserDeleteOutlined",
                 name: "供应商管理",
-                url: "/supplierManage",
+                url: "/supp",
                 detail: "供应商管理供应商管理"
             },
             {

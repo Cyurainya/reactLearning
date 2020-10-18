@@ -1,7 +1,7 @@
 const {merge} = require('webpack-merge');
 const common = require('./webpack.common.config.js');
 const TerserPlugin = require('terser-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -48,11 +48,12 @@ module.exports = merge(common, {
           'sass-loader'
         ]
       },
-      {
-        test: /\.(js|jsx)$/,
-        use: 'babel-loader',
-        exclude: /node_modules/,
-      }
+    
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   use: 'babel-loader',
+      //   exclude: /node_modules/,
+      // }
     ]
   },
   optimization: {
@@ -115,15 +116,15 @@ module.exports = merge(common, {
   },
 
   plugins: [
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: path.resolve(__dirname,'./public/index.html'),
-      inject: 'body',
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-      },
-    }),
+    // new HtmlWebpackPlugin({
+    //   filename: 'index.html',
+    //   template: path.resolve(__dirname,'../public/index.html'),
+    //   inject: 'body',
+    //   minify: {
+    //     removeComments: true,
+    //     collapseWhitespace: true,
+    //   },
+    // }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css',
