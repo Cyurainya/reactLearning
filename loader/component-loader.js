@@ -3,7 +3,7 @@ function replaceStyle(content) {
 }
 
 module.exports = function(source) {
-    const importHead = "import Header from '../../../components/header';\nimport Sidebar from '../../../components/Sidebar';\nimport 'antd/dist/antd.css';"
+    const importHead = "import Header from '../../../components/header';\nimport Sidebar from '../../../components/Sidebar';\nimport 'antd/dist/antd.css'\n;"
     const frameTop = "\n<React.Fragment>\n<Header />\n<div style={{display:'flex'}}>\n<Sidebar />\n";
     const frameBottom = "\n</React.Fragment>\n)\n}\n}\n;\nrender(<App/>, document.getElementById('app'));";
     this.cacheable(false);
