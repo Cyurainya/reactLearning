@@ -5,7 +5,7 @@ function replaceStyle(content) {
 module.exports = function(source) {
     const importHead = "import Header from '../../../components/header';\nimport Sidebar from '../../../components/Sidebar';\nimport 'antd/dist/antd.css'\n;"
     const frameTop = "\n<React.Fragment>\n<Header />\n<div style={{display:'flex'}}>\n<Sidebar />\n";
-    const frameBottom = "\n</React.Fragment>\n)\n}\n}\n;\nrender(<App/>, document.getElementById('app'));";
+    const frameBottom = "\n</div>\n</React.Fragment>\n)\n}\n}\n;\nrender(<App/>, document.getElementById('app'));";
     this.cacheable(false);
     //接着就是重新拼接模板
     const importHeadSource = importHead + source;

@@ -29,7 +29,7 @@ module.exports = {
     module: {
         rules: [ {
             test: /\.(js|jsx)$/,
-            include: path.resolve(__dirname, '../src/views'),
+            include:[ path.resolve(__dirname, '../src')],
             exclude: [/node_modules/, path.resolve(__dirname, './loader')],
             use: [
               'babel-loader',

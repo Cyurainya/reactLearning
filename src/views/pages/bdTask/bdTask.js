@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="main">
-      <h1>BD代办任务</h1>
+      <h1>bdTask</h1>
 
       </div>
     )
