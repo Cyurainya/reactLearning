@@ -2,14 +2,11 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: [
-        "webpack-dev-server/client?http://localhost:9000/",
-        // JS 执行入口文件
-        './src/index.js'
-    ],
+
     output: {
         filename: '[name]_[chunkhash:8].js', //给输出文件的文件名加上hash值
         path: path.resolve(__dirname, '../dist'),
+        publicPath: '/',
     },
     module: {
         rules: [{

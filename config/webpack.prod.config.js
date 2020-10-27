@@ -14,6 +14,10 @@ const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const path = require("path");
 module.exports = merge(common, {
   mode: "production",
+  entry: [
+    // JS 执行入口文件
+    './src/index.js'
+  ],
   output: {
     filename: "js/[name].[chunkhash:8].bundle.js",
   },
