@@ -2,6 +2,7 @@ import "antd/dist/antd.css";
 import "../src/style/main.css";
 import React from "react";
 import ReactDom from "react-dom";
+
 import App from "./App";
 
 const AppView = <App />;

@@ -1,11 +1,10 @@
 const router = require("koa-router")();
 
-
 router.get("/user", async (ctx) => {
   ctx.body = {
-    code:1,
+    code: 0,
     name: "testUser",
-    phone:12345
+    phone: 12345,
   };
 });
 router.get("/user");

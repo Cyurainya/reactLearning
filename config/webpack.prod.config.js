@@ -1,14 +1,9 @@
 //生产环境 对外服务 已经已经可以正常运行
-const {
-  merge
-} = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const common = require("./webpack.common.config.js");
 const TerserPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const {
-  CleanWebpackPlugin
-} = require("clean-webpack-plugin");
-const Manifest = require('webpack-manifest-plugin');
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const path = require("path");
@@ -16,7 +11,7 @@ module.exports = merge(common, {
   mode: "production",
   entry: [
     // JS 执行入口文件
-    './src/index.js'
+    "./src/index.js",
   ],
   output: {
     filename: "js/[name].[chunkhash:8].bundle.js",
@@ -34,7 +29,8 @@ module.exports = merge(common, {
     poll: 1000,
   },
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
@@ -87,11 +83,14 @@ module.exports = merge(common, {
         assetNameRegExp: /\.css$/g,
         cssProcessor: require("cssnano"), // cssProcessor压缩插件
         cssProcessorPluginOptions: {
-          preset: ["default", {
-            discardComments: {
-              removeAll: true
-            }
-          }],
+          preset: [
+            "default",
+            {
+              discardComments: {
+                removeAll: true,
+              },
+            },
+          ],
         },
         canPrint: true, // 表示插件能够在console中打印信息，默认值是true
       }),
@@ -119,7 +118,6 @@ module.exports = merge(common, {
   },
 
   plugins: [
-    new Manifest(),
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: path.resolve(__dirname, "../public/index.html"),
