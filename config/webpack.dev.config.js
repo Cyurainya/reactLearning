@@ -11,7 +11,7 @@ module.exports = merge(common, {
   mode: "development",
   watch: true,
   entry: [
-    "webpack-hot-middleware/client",
+    "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=10000&reload=true",
     // JS 执行入口文件
     "./src/index.js",
   ],
@@ -19,7 +19,7 @@ module.exports = merge(common, {
     //合并到一个文件
     filename: "js/[name].[hash:8].bundle.js",
   },
-  devtool: "inline-source-map",
+  // devtool: "inline-source-map",
   devServer: {
     contentBase: "/assets/",
   },
@@ -59,5 +59,5 @@ module.exports = merge(common, {
     }),
   ],
 
-  devtool: "source-map",
+  // devtool: "source-map",
 });

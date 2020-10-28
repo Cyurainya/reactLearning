@@ -1,13 +1,12 @@
-import React from 'react';
-import ReactDom from 'react-dom';
-import App from './App'
+import "antd/dist/antd.css";
+import "../src/style/main.css";
+import React from "react";
+import ReactDom from "react-dom";
+import App from "./App";
 
-const AppView = ( <
-    App / >
-)
+const AppView = <App />;
 
-
-ReactDom.render(AppView, document.getElementById('root'))
+ReactDom.render(AppView, document.getElementById("root"));
 if (module.hot) {
-    module.hot.accept();
+  module.hot.accept();
 }

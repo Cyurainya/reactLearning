@@ -2,38 +2,44 @@ li,
 .ant-menu.ant-menu-dark,
 .ant-menu-dark .ant-menu-sub,
 .ant-menu.ant-menu-dark .ant-menu-sub {
-    background: rgb(245, 245, 245);
-    color: blue;
+  background: rgb(245, 245, 245);
+  color: blue;
 }
-
-.ant-menu-item .ant-menu-item-only-child .ant-menu-item-selected {
-    color: blue;
-}
-
-.ant-menu-item .anticon+span,
 .ant-menu-dark .ant-menu-item,
 .ant-menu-dark .ant-menu-item-group-title,
-.ant-menu-dark .ant-menu-item>a,
-.ant-menu-dark .ant-menu-item>span>a {
-    color: #1890ff;
+.ant-menu-dark .ant-menu-item > a,
+.ant-menu-dark .ant-menu-item > span > a {
+  color: black;
+}
+.ant-menu-item .ant-menu-item-only-child .ant-menu-item-selected {
+  color: blue;
+}
+
+.ant-menu-item > span > a {
+  color: #1890ff;
 }
 
 .ant-menu.ant-menu-dark,
 .ant-menu-dark .ant-menu-sub,
 .ant-menu.ant-menu-dark .ant-menu-sub {
-    background: inherit;
+  background: inherit;
 }
 
 .anticon svg {
-    color: #1890ff;
+  color: #1890ff;
 }
 
 .nav {
-    width: fit-content;
-    background: rgb(245, 245, 245);
-    height: 94vh;
+  /* width: fit-content; */
+  background: rgb(245, 245, 245);
+  height: 94vh;
 }
 
-.ant-menu-item-selected>.linkDiv {
-    color: white
+.ant-menu-item-selected > .linkDiv {
+  color: white;
+}
+.ant-menu.ant-menu-dark,
+.ant-menu-dark .ant-menu-sub,
+.ant-menu.ant-menu-dark .ant-menu-sub {
+  background: rgb(245, 245, 245);
 }

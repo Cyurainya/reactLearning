@@ -1,0 +1,12 @@
+.title {
+  font-weight: 600;
+}
+.main {
+  width: 100%;
+  -webkit-box-flex: 6;
+  flex: 6;
+}
+.nav {
+  -webkit-box-flex: 1;
+  /* flex: 1; */
+}
