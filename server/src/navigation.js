@@ -1,6 +1,4 @@
-const router = require("koa-router")();
-
-router.get("/navigation", async (ctx) => {
+module.exports = async (ctx) => {
   ctx.body = {
     code: 0,
     navList: [
@@ -67,5 +65,5 @@ router.get("/navigation", async (ctx) => {
       },
     ],
   };
-});
-module.exports = router;
+};
+
