@@ -6,7 +6,7 @@ const HotModuleReplacementPlugin = require("webpack/lib/HotModuleReplacementPlug
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
+// const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = merge(common, {
   mode: "development",
   watch: true,
@@ -16,12 +16,14 @@ module.exports = merge(common, {
     "./src/index.js",
   ],
   output: {
+    path: path.resolve(__dirname, "../dist"),
     //合并到一个文件
     filename: "js/[name].[hash:8].bundle.js",
   },
-  // devtool: "inline-source-map",
   devServer: {
-    contentBase: "/assets/",
+    contentBase: "./dist",
+    contentBase: true,
+    publicPath: "./dist", //内存中的代码地址
   },
   module: {
     rules: [
@@ -40,6 +42,7 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
+    //   new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "css/[name].[hash].css",
       chunkFilename: "css/[id].[hash].css",

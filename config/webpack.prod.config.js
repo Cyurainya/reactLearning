@@ -14,7 +14,7 @@ module.exports = merge(common, {
     "./src/index.js",
   ],
   output: {
-    filename: "js/[name].[chunkhash:8].bundle.js",
+    filename: "js/[name].[hash:8].bundle.js",
   },
   watch: true,
   watchOptions: {
@@ -118,6 +118,7 @@ module.exports = merge(common, {
   },
 
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: path.resolve(__dirname, "../public/index.html"),
@@ -127,7 +128,7 @@ module.exports = merge(common, {
         collapseWhitespace: true,
       },
     }),
-    new CleanWebpackPlugin(),
+
     new MiniCssExtractPlugin({
       filename: "css/[name].[hash].css",
       chunkFilename: "css/[id].[hash].css",

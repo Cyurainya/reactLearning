@@ -3,9 +3,8 @@ const webpack = require("webpack");
 const Manifest = require("webpack-manifest-plugin");
 module.exports = {
   output: {
-    filename: "[name]_[chunkhash:8].js", //给输出文件的文件名加上hash值
-    path: path.resolve(__dirname, "../dist"),
-    publicPath: "/",
+    filename: "js/[name].[hash:8].bundle.js", //给输出文件的文件名加上hash值
+    path: "../dist",
   },
   module: {
     rules: [
@@ -31,5 +30,6 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: "react",
     }),
+    // "@babel/plugin-proposal-class-properties",
   ],
 };

@@ -2,5 +2,23 @@
   .select {
     display: flex;
     font-weight: 600;
+    margin-bottom: 2vh;
+  }
+}
+.list {
+  table {
+    border: 1px black solid;
+    border-radius: 5px;
+
+    th {
+      padding: 2vw;
+    }
+    td {
+      padding: 1vw;
+      border-top: 1px black solid;
+    }
+  }
+  .poiName {
+    color: rgb(42, 110, 212);
   }
 }
