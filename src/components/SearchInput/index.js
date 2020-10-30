@@ -8,6 +8,7 @@ class SearchInput extends Component {
     this.state = {
       btnValue: "storeBtn",
       timerId: null, //用来取消定时器
+      keyArr: [],
     };
   }
 
@@ -28,18 +29,30 @@ class SearchInput extends Component {
     }));
   }
   debounce(fn, delay = 2000) {
-    return (...rest) => {
-      let args = rest;
+    return (key) => {
       if (this.state.timerId) clearTimeout(this.state.timerId);
       this.state.timerId = setTimeout(() => {
-        fn.apply(this, args);
+        let tempArr = this.state.keyArr;
+        tempArr.push(key);
+        this.setState({
+          keyArr: tempArr,
+        });
+        //根据keyArr判断是否要执行ajax
+        if (tempArr.length) {
+          // //把队列的顶端拿出来，执行ajax
+          let searchKey = tempArr.shift();
+          this.setState({
+            keyArr: tempArr,
+          });
+          fn.call(this, searchKey);
+        }
       }, delay);
     };
   }
 
   inputChange(event) {
     let searchKey = event.target.value;
-    let debounceAjax = this.debounce(this.updateList, 400);
+    let debounceAjax = this.debounce(this.updateList, 1000);
     debounceAjax(searchKey);
   }
 

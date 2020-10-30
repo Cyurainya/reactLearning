@@ -29,6 +29,9 @@ class AdManage extends Component {
   componentDidMount() {
     this.getList();
   }
+  componentWillUnmount() {
+    this.setState = () => false;
+  }
   render() {
     return (
       <div className="main store">

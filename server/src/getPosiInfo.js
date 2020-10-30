@@ -1,7 +1,7 @@
 module.exports = async (ctx) => {
   const { key } = ctx.request.body.request;
 
-  const gap = Math.floor(Math.random() * 4) * 1000;
+  const gap = Math.floor(Math.random() * 10) * 1000;
 
   const errorGenerate = function () {
     return Math.floor(Math.random() * 10) === 0;
@@ -24,6 +24,7 @@ module.exports = async (ctx) => {
 
   const mockBinguan =
     '[{"partnerId":6130,"partnerName":"沈阳好到家酒店管理有限公司","partnerShortName":null,"partnerTypeId":null,"partnerType":null,"cooperationType":null,"bd":{"id":29349,"login":"xiaoming","email":null,"mobile":null,"name":"小明","warZone":null,"role":null},"accountNum":0,"privateSeaBd":{"id":0,"login":null,"email":null,"mobile":null,"name":null,"warZone":null,"role":null},"serviceStatusId":1,"digitalCertificates":null,"serviceStatus":"正常合作","baseInfoModel":{"poiId":5051936,"poiName":"南极洲宾馆","brandName":"","cityName":"九江市","districtName":"永修县","bizAreaName":null,"typeId":387,"typeName":null,"phone":"0792-3235358","address":"新城大道91号（新城图书馆院内）","status":"营业中","info":"配套设施齐全，住宿条件较好。周边景色别致，交通环境良好。","latitude":29014068,"longitude":115806236,"mergeId":0},"upgradeStatus":null,"overseaPartner":null}]';
+
   //等一段时间
   async function deffer(time) {
     return new Promise((res) => {
@@ -40,9 +41,10 @@ module.exports = async (ctx) => {
       data: [],
     });
   }
-  console.log(key);
+
   //等于小于南极洲三个字的都返回全部
   if ("南极洲".indexOf(key) !== -1) {
+    console.log(key);
     ctx.body = JSON.stringify({
       code: 0,
       message: "success",
@@ -51,6 +53,7 @@ module.exports = async (ctx) => {
     return;
   }
   if (key == "南极洲测试") {
+    console.log(key);
     ctx.body = JSON.stringify({
       code: 0,
       message: "success",
@@ -58,6 +61,7 @@ module.exports = async (ctx) => {
     });
     return;
   } else if (key == "南极洲测试酒店") {
+    console.log(key);
     ctx.body = JSON.stringify({
       code: 0,
       message: "success",
@@ -65,6 +69,7 @@ module.exports = async (ctx) => {
     });
     return;
   } else if (key == "南极洲酒店") {
+    console.log(key);
     ctx.body = JSON.stringify({
       code: 0,
       message: "success",
@@ -72,6 +77,7 @@ module.exports = async (ctx) => {
     });
     return;
   } else if (key == "南极洲刘坷") {
+    console.log(key);
     ctx.body = JSON.stringify({
       code: 0,
       message: "success",
@@ -79,6 +85,7 @@ module.exports = async (ctx) => {
     });
     return;
   } else if (key == "南极洲宾馆") {
+    console.log(key);
     ctx.body = JSON.stringify({
       code: 0,
       message: "success",
