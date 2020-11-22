@@ -16,7 +16,7 @@ import BdTask from "../bdTask/bdTask";
 class Home extends Component {
   render() {
     return (
-      <React.Fragment>
+      <div>
         <Header />
         <div style={{ display: "flex" }}>
           <Sidebar />
@@ -37,7 +37,7 @@ class Home extends Component {
             </Router>
           </div>
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }
